@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#B8F400">
+<title>Прокат квадроциклів Славське — BRP Тур | Замовлення одним дзвінком</title>
+<meta name="description" content="Квадротури, ендуро та снігоходи BRP у Славську. Жодних форм — оберіть маршрут і зателефонуйте: 096 839 35 29.">
+<style>
+/* =====================================================================
+   САЙТ БЕЗ ЖОДНОГО JAVASCRIPT.
+   Кожна кнопка — це звичайне посилання tel:, воно працює само по собі.
+   Щоб змінити текст чи ціну — просто відредагуйте текст у HTML нижче.
+   ===================================================================== */
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  color-scheme:light;
+  --bg:#F6F7F2; --line:#DDE2D4; --line2:#C6CEBA;
+  --text:#11160F; --muted:#586357;
+  --lime:#B8F400; --lime-d:#8FC300; --lime-ink:#0B1300; --lime-t:#3F6600;
+  --lv1:#3F7A00; --lv2:#A85F00; --lv3:#C04600; --lv4:#C62828;
+  --r:26px;
+  --disp:'Oswald','Arial Narrow','Roboto Condensed',Impact,sans-serif;
+  --body:system-ui,-apple-system,'Segoe UI',Roboto,'Onest',Arial,sans-serif;
+}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.55 var(--body);overflow-x:hidden;padding-bottom:84px}
+h1,h2,h3{font-family:var(--disp);font-weight:600;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;margin:0}
+h2{font-size:clamp(1.5rem,6vw,2.2rem)}
+h3{font-size:1.1rem}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(900px,100% - 2rem);margin-inline:auto}
+section[id]{scroll-margin-top:84px}
+
+/* кнопки-дзвінки */
+.call{display:flex;align-items:center;justify-content:center;gap:10px;min-height:64px;padding:14px 22px;border-radius:999px;background:var(--lime);color:var(--lime-ink);font:700 1.05rem/1.15 var(--body);letter-spacing:.02em;text-transform:uppercase;text-align:center}
+.call:active{transform:scale(.98)}
+.call-sm{min-height:46px;padding:10px 20px;font-size:.85rem}
+.call-outline{background:#fff;border:2px solid var(--line2);color:var(--text)}
+.ic{width:1.3em;height:1.3em;flex:none}
+
+/* шапка */
+.hdr{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:10px 0}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo b{font:700 1.3rem var(--disp)}
+.logo small{font:600 .6rem var(--body);letter-spacing:.3em;color:var(--lime-t);margin-top:2px}
+.hdr .call{min-height:48px;padding:10px 16px;font-size:.78rem;white-space:nowrap}
+@media(min-width:480px){.hdr .call{font-size:.95rem;padding:12px 22px}}
+
+/* hero */
+.hero{padding:34px 0 22px}
+.hero h1{font-size:clamp(2.2rem,9vw,3.6rem)}
+.hero p.lead{color:var(--muted);margin-top:14px;font-size:1.05rem;max-width:36em}
+.hero .call{margin-top:22px;width:100%}
+@media(min-width:480px){.hero .call{width:auto;min-width:300px}}
+
+/* плашка з правилом ціни */
+.rule{margin-top:20px;border:2px solid var(--lime);border-radius:var(--r);padding:16px 20px;background:rgba(184,244,0,.14);font-weight:600;font-size:.98rem}
+
+/* навігація-якорі (звичайні посилання, без JS) */
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.jump a{padding:9px 16px;border-radius:999px;border:1px solid var(--line2);background:#fff;font-weight:600;font-size:.88rem}
+
+/* секції каталогу */
+.sec{padding:40px 0 8px}
+.sec h2{padding-bottom:10px;border-bottom:2px solid var(--text);margin-bottom:6px}
+.sec .note{color:var(--muted);margin:10px 0 18px;max-width:40em}
+.group h3{color:var(--lime-t);margin:26px 0 12px}
+.group:first-of-type h3{margin-top:18px}
+
+/* картка маршруту */
+.grid{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:680px){.grid{grid-template-columns:1fr 1fr}}
+.card{display:flex;flex-direction:column;gap:12px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{padding:5px 12px;border-radius:999px;background:var(--text);color:#fff;font-size:.76rem;font-weight:600}
+.badge-o{padding:5px 12px;border-radius:999px;background:var(--bg);border:1px solid var(--line2);font-size:.76rem;font-weight:600}
+.lv1{color:var(--lv1)}.lv2{color:var(--lv2)}.lv3{color:var(--lv3)}.lv4{color:var(--lv4)}
+.card h3.name{text-transform:none;font-size:1.3rem;font-weight:700}
+.card .sub{color:var(--muted);font-size:.9rem;margin-top:-6px}
+.card .desc{color:#2E3A2B;font-size:.96rem}
+.card .price{margin-top:auto;display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-top:4px;border-top:1px dashed var(--line2)}
+.card .price b{font:700 1.7rem var(--disp)}
+.card .price.tbd b{font-size:1.25rem;color:var(--lv2)}
+.card .price span{color:var(--muted);font-size:.82rem}
+
+/* індивідуальний маршрут */
+.custom{margin:30px 0 10px;border:2px solid var(--lime-d);border-radius:calc(var(--r) + 6px);padding:26px 22px;background:#fff}
+.custom h2{font-size:clamp(1.4rem,5.4vw,2rem)}
+.custom p{color:var(--muted);margin-top:10px;max-width:40em}
+.wishes{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:7px}
+.wishes li{padding:7px 14px;border-radius:999px;background:rgba(184,244,0,.22);border:1px solid rgba(63,102,0,.3);font-size:.85rem}
+.custom .call{margin-top:20px;width:100%}
+@media(min-width:480px){.custom .call{width:auto}}
+
+/* снігоходи — інфоблок */
+.info-box{border:1px solid var(--line);border-radius:var(--r);background:#fff;padding:22px}
+.info-box p{color:var(--muted)}
+.info-box .call{margin-top:16px;width:100%}
+@media(min-width:480px){.info-box .call{width:auto}}
+
+/* футер */
+.footer{margin-top:50px;background:#000;color:#fff;padding:36px 0 26px}
+.footer .logo b{color:#fff}
+.footer p.tag{color:#B9C4B2;margin-top:6px}
+.footer .call{margin-top:20px;width:100%}
+@media(min-width:480px){.footer .call{width:auto;min-width:280px}}
+.footer .alt{margin-top:12px;color:#B9C4B2;font-size:.92rem}
+.footer .alt a{font-weight:700;color:#fff}
+.copy{margin-top:26px;color:#7C8A77;font-size:.82rem}
+
+/* нижня панель — завжди один дзвінок */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.95);border-top:1px solid var(--line);box-shadow:0 -4px 16px rgba(17,22,15,.08)}
+.mbar .call{width:100%}
+</style>
+</head>
+<body>
+
+<!-- ===================== ШАПКА: номер завжди на видноті ===================== -->
+<header class="hdr"><div class="wrap hdr-in">
+  <a class="logo" href="#top" aria-label="На початок сторінки"><b>BRP</b><small>СЛАВСЬКО</small></a>
+  <a class="call" href="tel:+380968393529">☎ 096 839 35 29</a>
+</div></header>
+
+<main id="top">
+<!-- ===================== HERO ===================== -->
+<section class="wrap hero">
+  <h1>Квадротури<br>Карпатами</h1>
+  <p class="lead">Оберіть маршрут нижче і зателефонуйте. Без форм, без реєстрації — ми відповімо, уточнимо деталі та домовимось про поїздку.</p>
+  <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+  <p class="rule">Усі ціни вказані за 1 одиницю техніки. На квадроциклі або снігоході можуть їхати до 2 людей. На ендуро-мотоциклі їде 1 людина.</p>
+  <nav class="jump" aria-label="Швидкий перехід">
+    <a href="#atv">Квадроцикли</a>
+    <a href="#enduro">Ендуро</a>
+    <a href="#snow">Снігоходи</a>
+    <a href="#custom">Індивідуальний маршрут</a>
+  </nav>
+</section>
+
+<!-- ===================== КВАДРОЦИКЛИ ===================== -->
+<section class="wrap sec" id="atv">
+  <h2>Квадроцикли BRP</h2>
+
+  <div class="group">
+    <h3>1 година</h3>
+    <div class="grid">
+
+      <article class="card">
+        <div class="badges"><span class="badge">Квадроцикл BRP</span><span class="badge-o">1 година</span><span class="badge-o lv1">Легкий</span></div>
+        <h3 class="name">Гора Ільза</h3>
+        <p class="desc">14 км лісовими дорогами, 2 зупинки та панорамні краєвиди на вершині.</p>
+        <div class="price"><b>1 500 грн</b><span>за квадроцикл, до 2 людей</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Квадроцикл BRP</span><span class="badge-o">1 година</span><span class="badge-o lv3">Складний</span></div>
+        <h3 class="name">Гора Ільза — круговий маршрут</h3>
+        <p class="sub">Складніший варіант</p>
+        <p class="desc">Круговий маршрут, 14 км, для тих, хто вже впевнено керує технікою.</p>
+        <div class="price"><b>2 000 грн</b><span>за квадроцикл, до 2 людей</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Квадроцикл BRP</span><span class="badge-o">1 година</span><span class="badge-o lv1">Легкий</span></div>
+        <h3 class="name">Кордон областей</h3>
+        <p class="sub">Львівська / Закарпатська</p>
+        <p class="desc">15 км до межі двох областей, 1 зупинка з гарним краєвидом.</p>
+        <div class="price"><b>1 500 грн</b><span>за квадроцикл, до 2 людей</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Квадроцикл BRP</span><span class="badge-o">1 година</span><span class="badge-o lv1">Легкий</span></div>
+        <h3 class="name">Гора Зубрівка</h3>
+        <p class="desc">12 км, легкий маршрут на гору, де також є карусель.</p>
+        <div class="price"><b>1 500 грн</b><span>за квадроцикл, до 2 людей</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="group">
+    <h3>2 години</h3>
+    <div class="grid">
+
+      <article class="card">
+        <div class="badges"><span class="badge">Квадроцикл BRP</span><span class="badge-o">2 години</span><span class="badge-o lv3">Складний</span></div>
+        <h3 class="name">Захар Беркут</h3>
+        <p class="desc">24 км, складний маршрут на гору Захар Беркут.</p>
+        <div class="price"><b>3 000 грн</b><span>за квадроцикл, до 2 людей</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Квадроцикл BRP</span><span class="badge-o">2 години</span><span class="badge-o lv2">Середня</span></div>
+        <h3 class="name">Круговий «Карпатський драйв»</h3>
+        <p class="desc">30 км різноманітним рельєфом: калюжі, гірська річка та ущелина між горами Близниці.</p>
+        <div class="price"><b>3 000 грн</b><span>за квадроцикл, до 2 людей</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Квадроцикл BRP</span><span class="badge-o">2 години</span><span class="badge-o lv1">Легкий</span></div>
+        <h3 class="name">Озеро Віта — Закарпаття</h3>
+        <p class="desc">25 км до високогірного озера, 30 хвилин вільного часу для відпочинку.</p>
+        <div class="price"><b>3 000 грн</b><span>за квадроцикл, до 2 людей</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Квадроцикл BRP</span><span class="badge-o">2 години</span><span class="badge-o lv2">Середня</span></div>
+        <h3 class="name">Карпатська карусель</h3>
+        <p class="desc">24 км: підйом до Захар Беркута, хребет до Ялини (1200 м) і виїзд до «Карпатської каруселі».</p>
+        <div class="price"><b>3 000 грн</b><span>за квадроцикл, до 2 людей</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="group">
+    <h3>3 години</h3>
+    <div class="grid">
+
+      <article class="card">
+        <div class="badges"><span class="badge">Квадроцикл BRP</span><span class="badge-o">3 години</span><span class="badge-o lv2">Середня / Складний</span></div>
+        <h3 class="name">Межа 3-х областей</h3>
+        <p class="desc">Місце, де сходяться Львівська, Закарпатська та Івано-Франківська області. Зупинки на Захар Беркуті й Чорній Рипі.</p>
+        <div class="price tbd"><b>Ціна уточнюється</b></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Квадроцикл BRP</span><span class="badge-o">3 години</span><span class="badge-o lv2">Середня</span></div>
+        <h3 class="name">Велике карпатське коло</h3>
+        <p class="desc">45 км мальовничим карпатським колом середньої складності.</p>
+        <div class="price"><b>4 500 грн</b><span>за квадроцикл, до 2 людей</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="group">
+    <h3>Довгі маршрути</h3>
+    <div class="grid">
+
+      <article class="card">
+        <div class="badges"><span class="badge">Квадроцикл BRP</span><span class="badge-o">6 годин</span><span class="badge-o lv4">Висока</span></div>
+        <h3 class="name">Гора Гимба</h3>
+        <p class="desc">Насичений довгий маршрут Карпатами для тих, хто хоче провести більше часу в горах.</p>
+        <div class="price tbd"><b>Ціна уточнюється</b></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ЕНДУРО ===================== -->
+<section class="wrap sec" id="enduro">
+  <h2>Ендуро мотоцикли</h2>
+  <p class="note">Ті самі маршрути та ціни, що й для квадроциклів. На одному мотоциклі їде 1 людина.</p>
+
+  <div class="group">
+    <h3>1 година</h3>
+    <div class="grid">
+
+      <article class="card">
+        <div class="badges"><span class="badge">Ендуро</span><span class="badge-o">1 година</span><span class="badge-o lv1">Легкий</span></div>
+        <h3 class="name">Гора Ільза</h3>
+        <p class="desc">14 км лісовими дорогами, 2 зупинки та панорамні краєвиди на вершині.</p>
+        <div class="price"><b>1 500 грн</b><span>за мотоцикл</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Ендуро</span><span class="badge-o">1 година</span><span class="badge-o lv3">Складний</span></div>
+        <h3 class="name">Гора Ільза — круговий маршрут</h3>
+        <p class="sub">Складніший варіант</p>
+        <p class="desc">Круговий маршрут, 14 км, для тих, хто вже впевнено керує технікою.</p>
+        <div class="price"><b>2 000 грн</b><span>за мотоцикл</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Ендуро</span><span class="badge-o">1 година</span><span class="badge-o lv1">Легкий</span></div>
+        <h3 class="name">Кордон областей</h3>
+        <p class="sub">Львівська / Закарпатська</p>
+        <p class="desc">15 км до межі двох областей, 1 зупинка з гарним краєвидом.</p>
+        <div class="price"><b>1 500 грн</b><span>за мотоцикл</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Ендуро</span><span class="badge-o">1 година</span><span class="badge-o lv1">Легкий</span></div>
+        <h3 class="name">Гора Зубрівка</h3>
+        <p class="desc">12 км, легкий маршрут на гору, де також є карусель.</p>
+        <div class="price"><b>1 500 грн</b><span>за мотоцикл</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="group">
+    <h3>2 години</h3>
+    <div class="grid">
+
+      <article class="card">
+        <div class="badges"><span class="badge">Ендуро</span><span class="badge-o">2 години</span><span class="badge-o lv3">Складний</span></div>
+        <h3 class="name">Захар Беркут</h3>
+        <p class="desc">24 км, складний маршрут на гору Захар Беркут.</p>
+        <div class="price"><b>3 000 грн</b><span>за мотоцикл</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Ендуро</span><span class="badge-o">2 години</span><span class="badge-o lv2">Середня</span></div>
+        <h3 class="name">Круговий «Карпатський драйв»</h3>
+        <p class="desc">30 км різноманітним рельєфом: калюжі, гірська річка та ущелина між горами Близниці.</p>
+        <div class="price"><b>3 000 грн</b><span>за мотоцикл</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Ендуро</span><span class="badge-o">2 години</span><span class="badge-o lv1">Легкий</span></div>
+        <h3 class="name">Озеро Віта — Закарпаття</h3>
+        <p class="desc">25 км до високогірного озера, 30 хвилин вільного часу для відпочинку.</p>
+        <div class="price"><b>3 000 грн</b><span>за мотоцикл</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Ендуро</span><span class="badge-o">2 години</span><span class="badge-o lv2">Середня</span></div>
+        <h3 class="name">Карпатська карусель</h3>
+        <p class="desc">24 км: підйом до Захар Беркута, хребет до Ялини (1200 м) і виїзд до «Карпатської каруселі».</p>
+        <div class="price"><b>3 000 грн</b><span>за мотоцикл</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="group">
+    <h3>3 години</h3>
+    <div class="grid">
+
+      <article class="card">
+        <div class="badges"><span class="badge">Ендуро</span><span class="badge-o">3 години</span><span class="badge-o lv2">Середня / Складний</span></div>
+        <h3 class="name">Межа 3-х областей</h3>
+        <p class="desc">Місце, де сходяться Львівська, Закарпатська та Івано-Франківська області. Зупинки на Захар Беркуті й Чорній Рипі.</p>
+        <div class="price tbd"><b>Ціна уточнюється</b></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+      <article class="card">
+        <div class="badges"><span class="badge">Ендуро</span><span class="badge-o">3 години</span><span class="badge-o lv2">Середня</span></div>
+        <h3 class="name">Велике карпатське коло</h3>
+        <p class="desc">45 км мальовничим карпатським колом середньої складності.</p>
+        <div class="price"><b>4 500 грн</b><span>за мотоцикл</span></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="group">
+    <h3>Довгі маршрути</h3>
+    <div class="grid">
+
+      <article class="card">
+        <div class="badges"><span class="badge">Ендуро</span><span class="badge-o">6 годин</span><span class="badge-o lv4">Висока</span></div>
+        <h3 class="name">Гора Гимба</h3>
+        <p class="desc">Насичений довгий маршрут Карпатами для тих, хто хоче провести більше часу в горах.</p>
+        <div class="price tbd"><b>Ціна уточнюється</b></div>
+        <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== СНІГОХОДИ ===================== -->
+<section class="wrap sec" id="snow">
+  <h2>Снігоходи BRP</h2>
+  <div class="info-box">
+    <p>Маршрути та ціни для снігоходів уточнюються. Зателефонуйте — підберемо поїздку.</p>
+    <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+  </div>
+</section>
+
+<!-- ===================== ІНДИВІДУАЛЬНИЙ МАРШРУТ ===================== -->
+<section class="wrap" id="custom">
+  <div class="custom">
+    <h2>Підбір індивідуального маршруту</h2>
+    <p>Не знайшли потрібний маршрут? Зателефонуйте нам — підберемо або створимо маршрут під ваші побажання.</p>
+    <ul class="wishes" aria-label="Приклади побажань">
+      <li>Більше бездоріжжя</li><li>Більше підйомів</li><li>Більше панорамних місць</li>
+      <li>Довший маршрут</li><li>Коротший маршрут</li><li>Захід сонця</li>
+      <li>Нічна поїздка</li><li>Конкретні місця</li><li>Інший темп поїздки</li>
+    </ul>
+    <p style="margin-top:10px;font-size:.85rem">Це лише приклади. Розкажіть, що хочете саме ви — по телефону.</p>
+    <a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a>
+  </div>
+</section>
+</main>
+
+<!-- ===================== ФУТЕР: номер знову на видноті ===================== -->
+<footer class="footer"><div class="wrap">
+  <a class="logo" href="#top"><b>BRP</b><small>СЛАВСЬКО</small></a>
+  <p class="tag">Квадротури Карпатами</p>
+  <a class="call" href="tel:+380968393529">☎ 096 839 35 29</a>
+  <p class="alt">Або: <a href="tel:+380983438390">098 343 83 90</a></p>
+  <p class="copy">© 2026 BRP • СЛАВСЬКО</p>
+</div></footer>
+
+<!-- ===================== НИЖНЯ ПАНЕЛЬ: один дзвінок завжди під рукою ===================== -->
+<div class="mbar"><a class="call" href="tel:+380968393529">☎ Забронювати за телефоном</a></div>
+
+</body>
+</html>
